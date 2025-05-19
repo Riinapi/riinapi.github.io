@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(92, 31, 88);
+    background-image: url(../img/tausta.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+   
+}
