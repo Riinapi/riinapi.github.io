@@ -1,31 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Hello, world!</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Riina Pietikäinen">
-    <meta name="description" content="Omat sivut portfoliota varten">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="css/style.css" rel="stylesheet" />
 
-    <!-- Optional JavaScript; choose one of the two! -->
+</head>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<body>
+  <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">Portfolio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#tiedot">Tietoja minusta</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#taidot">Osaaminen</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projektit">Projektit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#yhteystiedot">Yhteystiedot</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    -->
-  </body>
+        
+        <!-- Header-->
+        <header class="text-white">
+            <div class="container">
+                <h1>Welcome to Scrolling Nav</h1>
+                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
+            </div>
+        </header>
+
+        <!-- About section-->
+        <section id="tiedot">
+            <div class="container px-4">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="row">
+                            <div class="col-4 col-md-12">
+                                <img class="myimg" src="img/memo_kansi.png" alt="Image">
+                            </div>
+                            <div class="col-8 d-md-none d-flex align-items-center"> <h2>Otsikko</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 ">
+                        <div class="row">
+                            <div class="col-12 d-none d-md-block"> <h2>Otsikko</h2>
+                            </div>
+                            <div class="col-12">
+                                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Osaaminen-->
+         <section id="taidot">
+            <div class="container px-4">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h2>Osaaminen</h2>
+                    </div>
+                    <div class="col-6 text-center">
+                        <span class="content-switcher active" data-target="taidotContent">Taidot</span>
+                        <span class="content-switcher" data-target="koulutusContent">Koulutus</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div id="koulutusContent" class="content-display">
+                            <h3>Koulutukseni</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+                        </div>
+
+                        <div id="taidotContent" class="content-display active-display">
+                            <h3>Taitoni</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projektit-->
+        <section id="projektit">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="text-white">Otsikko</h2>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="swiper-container">
+                    <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <img src="img/movie_kansi.png" alt="Memo">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">Suosikki elokuvat</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/saa_kansi.png" alt="Movie">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2">Sää päiväkirja</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/memo_4.png" alt="Botti">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3">Viidakko muistipeli</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/sivu_kansi.png" alt="Botti 2">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project4">Lapin marjat</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/game_1.png" alt="Memo 2">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project5">Gallery Allergy</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/zigzag_kansi.png" alt="Botti 3">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project6">Zig Zag</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/botti_kansi.png" alt="Botti 4">
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project7">Chatbot</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--Yhteystiedot-->
+        <section id="yhteystiedot">
+            <div class="container px-4">
+                <div class="row">
+                    <div class="col-12 col-md-8 ">
+                        <div class="row">
+                            <div class="col-12 d-none d-md-block"> <h2>Yhteystiedot</h2>
+                            </div>
+                            <div class="col-12">
+                                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+        <!-- Footer-->
+        <footer class="py-5">
+            <div class="container px-4">
+                <p class="m-0 text-center text-white">Copyright &copy; Riina Pietikäinen 2025</p>
+            </div>
+        </footer>
+
+        <!--Projektin modaali-->
+        <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-fullscreen-lg-down"> 
+            <div class="modal-content bg-dark text-white">
+              <div class="modal-header">
+                <!-- Sulje-nappi tässä -->
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="projectModalBody">
+                <!-- Sisältö tulee tänne -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/js.js"></script>
+
+
+</body>
 </html>
