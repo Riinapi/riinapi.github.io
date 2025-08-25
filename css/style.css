@@ -11,9 +11,72 @@ html {
   scroll-behavior: smooth;
 }
 
-nav {
-  background-color: #1f2326;
+#mainNav {
+  transition: background-color 0.3s ease;
+  background-color: transparent;
 }
+
+#mainNav.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Esimerkki: tumma läpinäkyvä tausta */
+}
+
+/* Hamppari */
+.navbar-toggler {
+  border: none;
+  background: transparent !important;
+  cursor: pointer;
+}
+
+.navbar-toggler:hover {
+  background: transparent !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar-toggler .icon-bar {
+  height: 2px;
+  width: 26px;
+  background-color: white;
+  border-radius: 1px;
+  display: block;
+  margin-top: 5px;
+  transition: all 0.2s;
+}
+
+/* X-animaatio */
+.navbar-toggler:not(.collapsed) .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler:not(.collapsed) .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+
+
 
 header {
   display: flex;
@@ -21,8 +84,8 @@ header {
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: #1F2326;
-  background: linear-gradient(170deg,rgba(31, 35, 38, 1) 0%, rgba(41, 35, 48, 1) 45%, rgba(62, 36, 69, 1) 50%, rgba(47, 36, 54, 1) 55%, rgba(31, 35, 38, 1) 100%);
+  background: rgb(56,68,75);
+  background: radial-gradient(circle, rgba(56,68,75,1) 0%, rgba(35,43,48,1) 100%); 
   
 }
 
@@ -202,11 +265,20 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
+
 .modal-header {
-  border: none;
+  border:none;
   padding-bottom: 0px;
+}
+
+.btn-close:focus,
+.btn-close:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
 .modal-button-prev{
@@ -227,14 +299,17 @@ section {
 }
 
 .modal-swiper .swiper-slide {
-  max-height: 400px;
+  height: 400px;
   box-shadow: none;
   background: #1f2326;
   border-radius: 12px;
+  display: flex;           /* keskittää sisältö pystysuunnassa */
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-swiper .swiper-slide img {
-  height:100%;
+  max-height:100%;
   width: 100%;
   object-fit: contain;
   border-radius: 12px;
@@ -244,6 +319,15 @@ section {
 .vertical-swiper .swiper-slide {
   width: 240px;
   height: 380px;
+  display: flex;           /* keskittää sisältö pystysuunnassa */
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-swiper .swiper-slide img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -253,11 +337,6 @@ section {
     }
   }
 
-.vertical-swiper .swiper-slide img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
 
 
 
