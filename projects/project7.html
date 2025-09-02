@@ -3,13 +3,13 @@
   <div class="row">
     <div class="col-12">
       <div class="swiper-container">
-        <div class="swiper modal-swiper">
+        <div class="swiper modal-swiper single-slide horizontal-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="img/botti_1.png" alt="Memo">
+              <img src="img/botti_1.png" alt="Chatbotin ensimmäinen kuva">
             </div>
             <div class="swiper-slide">
-              <img src="img/botti_2.png" alt="Movie">
+              <img src="img/botti_2.png" alt="Chatbotin toinen kuva">
             </div>
           </div>
         </div>
@@ -19,8 +19,20 @@
       </div>
     </div>
     <div class="col-12">
-      <h2 class="text-white">Suomen lapinkoira Chatbot</h2>
-      <p>slgjraägjls</p>
+      <h4>Suomen lapinkoira Chatbot</h4>
+      <p>Chatbot osaa vastata yksinkertaisiin kysymyksiin PDF-dokumentista, jossa on tietoa Suomenlapin koirasta. Sovellus on toteutettu Flaskilla,
+         ja tekoälymallina käytetään ilmaista Hugging Facen Transformers -kirjaston suomenkielistä BERT-mallia 
+         (TurkuNLP/bert-base-finnish-cased-squad2). Käyttäjä voi syöttää kysymyksiä lomakkeella, ja botti hakee vastaukset PDF:n tekstin perusteella.
+          Sivun taustan suunnittelin Canva-työkalulla visuaalista ilmettä parantamaan. Harjoituksen tarkoituksena oli opetella web-sovelluksen rakentamista, 
+          PDF:n käsittelyä ja suomenkielisen NLP-mallin hyödyntämistä.
+      </p>
+      <p>Teknologiat: </p>
+      <div class="row">
+        <div class="col">Python</div>
+        <div class="col">Flask</div>
+        <div class="col">Hugging Face Transformers</div>
+        <div class="col">PyPDF2</div>
+      </div>
     </div>
   </div>
 </div>

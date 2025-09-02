@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
       stretch: 0,
       depth: 100,
       modifier: 4,
-      slideShadows: true
+      slideShadows: false,
     },
     loop: true,
     keyboard: {
@@ -119,42 +119,61 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   modal.addEventListener('shown.bs.modal', () => {
-    const swiperEl = modal.querySelector('.modal-swiper');
-    if (!swiperEl) return;
+  const swiperEl = modal.querySelector('.modal-swiper');
+  if (!swiperEl) return;
 
-    const isSingleSlide = swiperEl.classList.contains('single-slide');
+  const isSingleSlide = swiperEl.classList.contains('single-slide');
 
-    const swiper = new Swiper(swiperEl, {
-      effect: "coverflow",
-      grabCursor: false,
-      centeredSlides: true,
-      allowTouchMove: true,
-      slidesPerView: isSingleSlide ? 1 : 'auto',
-      loop: true,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 4,
-        slideShadows: true
-      },
-      pagination: {
-        el: ".modal-swiper-pagination",
-        clickable: true
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-      },
-      breakpoints: {
-        576: { allowTouchMove: true },
-        768: { allowTouchMove: true },
-        1024: { allowTouchMove: false }
-      }
-    });
-
-    swiperEl.classList.add('swiper-ready');
+  const swiper = new Swiper(swiperEl, {
+    effect: isSingleSlide ? "fade" : "coverflow",
+    grabCursor: false,
+    centeredSlides: true,
+    allowTouchMove: true,
+    slidesPerView: isSingleSlide ? 1 : 'auto',
+    loop: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 4,
+      slideShadows: false
+    },
+    pagination: {
+      el: ".modal-swiper-pagination",
+      clickable: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+    },
+    breakpoints: {
+      576: { allowTouchMove: true },
+      768: { allowTouchMove: true },
+      1024: { allowTouchMove: false }
+    }
   });
+
+  // --- Jos modaalissa on video, lisätään automaattinen toisto
+  const video = swiperEl.querySelector('video'); // haetaan video vain tämän Swiperin sisältä
+  if (video) {
+    function handleVideo() {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      if (activeSlide.contains(video)) {
+        video.muted = true;
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    }
+
+    swiper.on('slideChange', handleVideo);
+    handleVideo(); // tarkistetaan aktiivinen slide heti
+  }
+
+  swiperEl.classList.add('swiper-ready');
+});
+
 
   // --- NAVIGAATION TAUSTAVÄRI SCROLLATESSA ---
   function toggleNavbarBackground() {

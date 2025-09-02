@@ -103,7 +103,7 @@ section {
 /*TIEDOT*/
 /*Oma kuva*/
 .myimg {
-    width: 100%; 
+    width: 80%; 
     height: auto; 
 }
 
@@ -160,56 +160,59 @@ section {
 
     .swiper {
       width: 100%;
-      padding: 20px 0 50px 0;
+      padding: 20px 0 100px 0;
     }
 
     .swiper-slide {
+      position:relative;
       width: 300px;
       height: 300px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
-      box-shadow: -1px 5px 15px #0000001f;
       background-color: #1f2326;
       filter: brightness(50%);
       transition: filter 0.3s ease;
+      overflow: visible;
     }
 
     .swiper-slide img {
-
       height: 100%;
       object-fit: contain;
-      border-radius: 12px;
-      
+      display: block;
     }
 
     .swiper-slide-active {
       filter: brightness(100%);
+      position: relative;
     }
 
     .swiper-slide span {
       position: absolute;
-      bottom: 0;
+      width:100%;
+      bottom: -50px;   /* siirtää ulos sliden alareunasta */
       left: 50%;
       transform: translateX(-50%);
-      background-color: rgba(0, 0, 0, 0.7);
+      padding: 6px 12px;
       color: white;
-      padding: 8px 15px;
-      border-radius: 0 0 12px 12px;
-      width: 100%;
       text-align: center;
-      box-sizing: border-box;
-      cursor: pointer;
-      opacity: 0; /* Käytä opacitya pehmeään siirtymään */
-      transition: opacity 0.3s ease; /* Animaatio näkymiselle/piilottamiselle */
-      pointer-events: none; /* Estää klikkaukset, kun piilossa. Poista jos haluat klikattavan aina. */
+      opacity: 0;
+      pointer-events: none;
     }
-
     /* Näytä span vain aktiivisen sliden sisällä */
     .swiper-slide-active span {
-      opacity: 1; /* Tee näkyväksi */
+
       pointer-events: auto; /* Mahdollista klikkaukset, kun näkyvissä */
+      animation: fadeIn 1s forwards;
+    }
+
+     @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
     
     #projektit .swiper-slide-active:hover span {
@@ -226,7 +229,7 @@ section {
     .swiper-button-next {
       background: rgb(45, 45, 45);
       border-radius: 50%;
-      top: 50%;
+      top: 45%;
       width: 50px;
       height: 50px;
       box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.17);
@@ -260,18 +263,23 @@ section {
 
 .modal-content {
   background-color: #1f2326;
+  color: white;
 }
-.modal-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-}
-
 
 .modal-header {
   border:none;
   padding-bottom: 0px;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body h4{
+  margin-bottom:20px;
+  margin-top:10px;
 }
 
 .btn-close:focus,
@@ -290,8 +298,9 @@ section {
 
 .modal-swiper {
  width: 100%;
+ padding: 20px 0 40px 0;
  opacity: 0;
-  transition: opacity 0.4s ease;
+ transition: opacity 0.4s ease;
 }
 
 .modal-swiper.swiper-ready {
@@ -299,10 +308,9 @@ section {
 }
 
 .modal-swiper .swiper-slide {
-  height: 400px;
+  height: 300px;
   box-shadow: none;
-  background: #1f2326;
-  border-radius: 12px;
+  background:none;
   display: flex;           /* keskittää sisältö pystysuunnassa */
   justify-content: center;
   align-items: center;
@@ -312,10 +320,31 @@ section {
   max-height:100%;
   width: 100%;
   object-fit: contain;
-  border-radius: 12px;
 }
 
-/* Vertikaali */
+/* Isommat kuvat swiper*/
+.big-swiper .swiper-slide {
+  height: 450px;
+  box-shadow: none;
+  background: #1f2326;
+  display: flex;           /* keskittää sisältö pystysuunnassa */
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+    .big-swiper .swiper-slide {
+      height: 250px;
+    }
+  }
+
+.big-swiper .swiper-slide img {
+  max-height:100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Vertikaali swiper */
 .vertical-swiper .swiper-slide {
   width: 240px;
   height: 380px;
@@ -324,11 +353,6 @@ section {
   align-items: center;
 }
 
-.vertical-swiper .swiper-slide img {
-  object-fit: contain;
-  width: 100%;
-  max-height: 100%;
-}
 
 @media (max-width: 768px) {
     .vertical-swiper .swiper-slide {
@@ -336,6 +360,66 @@ section {
       height: 340px;
     }
   }
+
+.vertical-swiper .swiper-slide img {
+  object-fit: contain;
+  width: 100%;
+  max-height: 100%;
+}
+
+/* Vaakasuora swiper*/
+@media (max-width: 768px) {
+    .horizontal-swiper .swiper-slide {
+      height: 180px;
+    }
+  }
+
+/* Tee modal-lg leveämmäksi tableteilla */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal-dialog.modal-lg {
+    max-width: 90%; /* esim. melkein koko leveys */
+    margin: auto;   /* keskitys */
+  }
+}
+
+/*video*/
+.memo-video-container {
+  width: 300px;
+  height: 300px;
+}
+
+.video-container {
+  width: 230px;
+  height: 380px; /* ottaa koko sliden korkeuden */
+}
+
+@media (max-width: 768px) {
+    .video-container {
+      width: 220px;
+      height: 340px;
+    }
+  }
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit:contain; /* sama kuin kuvilla */
+}
+
+.memo-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit:contain; /* sama kuin kuvilla */
+}
+
+
+
+
+
+
+
+
+
 
 
 
