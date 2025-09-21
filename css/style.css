@@ -474,6 +474,24 @@ section {
   box-shadow: none;
 }
 
+.modal-body i {
+  font-size: 38px;            
+  color: #782385;             
+  text-shadow: 0 0 8px #46114e, 0 0 15px #46114e;
+  transition: transform 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .modal-body i {
+        font-size: 30px;  
+    }
+}
+
+.modal-body i:hover {
+  color: #a13eb2;
+}
+
 .modal-button-prev{
   left: -15px;
 }
