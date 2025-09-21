@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <title>Bootstrap 5 Example</title>
+  
   <meta charset="utf-8">
   <meta name="description" content="" />
   <meta name="author" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="icon" href="img/PR.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -18,10 +19,9 @@
   <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-          <div class="container px-4">
-            <a class="navbar-brand" href="#page-top">Portfolio</a>
+          <div class="container">
+            <img class="logo" src="img/RP.png" href="#page-top">
 
-            <!-- Hamburger toggle ilman default-iconia -->
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-bar top-bar"></span>
               <span class="icon-bar middle-bar"></span>
@@ -30,17 +30,24 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#tiedot">Tietoja minusta</a></li>
-                <li class="nav-item"><a class="nav-link" href="#taidot">Osaaminen</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projektit">Projektit</a></li>
-                <li class="nav-item"><a class="nav-link" href="#yhteystiedot">Yhteystiedot</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#tiedot" data-title="Esittely | OmaSivu">Esittely</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#taidot" data-title="Taidot | OmaSivu">Taidot</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#projektit" data-title="Portfolio | OmaSivu">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#yhteystiedot" data-title="Yhteystiedot | OmaSivu">Yhteystiedot</a>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
 
 
-        
         <!-- Header-->
         <header class="text-white">
             <div class="container">
@@ -48,26 +55,33 @@
                 <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
             </div>
         </header>
+        
 
-        <!-- About section-->
+        <!--Esittely-->
         <section id="tiedot">
-            <div class="container px-4">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="row">
-                            <div class="col-4 col-md-12">
-                                <img class="myimg" src="img/photo.jpg" alt="Riina Pietikäinen, portfolioesittelykuva">
-                            </div>
-                            <div class="col-8 d-md-none d-flex align-items-center"> <h2>Otsikko</h2>
-                            </div>
-                        </div>
+                    <div class="col-md-12 col-lg-6">
+                          <img class="myimg" src="img/photo.png" alt="Riina Pietikäinen, portfolioesittelykuva">
                     </div>
-                    <div class="col-12 col-md-8 ">
+                    <div class="col-md-12 col-lg-6">
                         <div class="row">
-                            <div class="col-12 d-none d-md-block"> <h2>Otsikko</h2>
+                            <div class="col-12">
+                              <p>ESITTELY</p> 
+                              <h2>Minun tarinani</h2>
                             </div>
                             <div class="col-12">
-                                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
+                                <p>Olen Riina Pietikäinen, kolmannen vuoden tietojenkäsittelyn tradenomiopiskelija Lapin ammattikorkeakoulussa.
+                                   Suuntaudun ohjelmointiin ja olen kehittänyt osaamistani useissa kielissä, kuten [esim. Python, JavaScript]. 
+                                   Tavoitteenani on kasvaa monipuoliseksi osaajaksi, joka ymmärtää kokonaisuuksia.<br><br>
+                                   Alanvaihtajana tuon mukanani pitkän kokemuksen asiakaspalvelusta, joka on opettanut kuuntelemisen, yhteistyön ja
+                                   joustavuuden merkityksen. Luonnostani kiinnitän helposti huomiota pieniin yksityiskohtiin, uteliaisuuteni saa 
+                                   minut kokeilemaan uusia ratkaisuja, ja luovuus auttaa löytämään uusia näkökulmia.<br><br>
+                                   Minua IT-alalla kiehtoo mahdollisuus luoda ratkaisuja, jotka auttavat ja innostavat sekä käyttäjiä että organisaatioita.</p>
+                                  <p>Erityisesti kiinnostavat testaus, tekoäly, sovelluskehitys ja front end -kehitys.</p>
+                            </div>
+                            <div class="col-12">
+                              <img class="signature" src="img/name.png">
                             </div>
                         </div>
                     </div>
@@ -77,30 +91,62 @@
 
         <!--Osaaminen-->
          <section id="taidot">
-            <div class="container px-4">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <h2>Osaaminen</h2>
-                    </div>
-                    <div class="col-6 text-center">
-                        <span class="content-switcher active" data-target="taidotContent">Taidot</span>
-                        <span class="content-switcher" data-target="koulutusContent">Koulutus</span>
-                    </div>
-                </div>
-
+            <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div id="koulutusContent" class="content-display">
-                            <h3>Koulutukseni</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+                      <p>TAIDOT</p>
+                      <h2>Osaaminen</h2>
+                    </div>
+                    <div class="col-12">
+                      <div class="row g-4">
+                        <div class="col-12 col-md-3">
+                            <div class="skill-card">
+                              <i class="fas fa-laptop-code skill-icon"></i>
+                              <p class="skill-title">Frontend</p>
+                              <p class="skill-text">HTML /&nbsp;CSS /&nbsp;JavaScript /&nbsp;Angular /&nbsp;Bootstrap</p>
+                            </div>
                         </div>
 
-                        <div id="taidotContent" class="content-display active-display">
-                            <h3>Taitoni</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+                        <div class="col-6 col-md-3">
+                          <div class="skill-card">
+                            <i class="fas fa-database skill-icon"></i>
+                            <p class="skill-title">Backend</p>
+                            <p class="skill-text">PHP /&nbsp;Python /&nbsp;Java /&nbsp;C# /&nbsp;SQL</p>
+                          </div>
                         </div>
+
+                        <div class="col-6 col-md-3">
+                          <div class="skill-card">
+                            <i class="fas fa-mobile-alt skill-icon"></i>
+                            <p class="skill-title">Mobiili</p>
+                            <p class="skill-text">Flutter /&nbsp;Kotlin</p>
+                          </div>
+                        </div>
+
+                        <div class="col-6 col-md-3">
+                          <div class="skill-card">
+                            <i class="fas fa-globe skill-icon"></i>
+                            <p class="skill-title">Verkkosivualustat</p>
+                            <p class="skill-text">WordPress</p>
+                          </div>
+                        </div>
+
+                        <div class="col-6 col-md-4">
+                          <div class="skill-card">
+                            <i class="fas fa-vr-cardboard skill-icon"></i>
+                            <p class="skill-title">Pelit & XR</p>
+                            <p class="skill-text">Unity /&nbsp;AR/VR</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-8">
+                          <div class="skill-card">
+                            <i class="fas fa-tools skill-icon"></i>
+                            <p class="skill-title">Työkalut & ohjelmistot</p>
+                            <p class="skill-text">GitHub /&nbsp;VS Code /&nbsp;Eclipse /&nbsp;Visual Studio /&nbsp;Android Studio /&nbsp;XAMPP /&nbsp;Figma /&nbsp;Power BI /&nbsp;Adobe Photoshop /&nbsp;MS Office 365 /&nbsp;Trello</p>
+                          </div>
+                        </div>
+                      </div>    
                     </div>
                 </div>
             </div>
@@ -108,18 +154,21 @@
 
         <!-- Projektit-->
         <section id="projektit">
-          <div class="container">
+          <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <h2 class="text-white">Otsikko</h2>
+                <p>PORTFOLIO</p>
+                <h2 class="text-white">Viimeisimmät projektit</h2>
               </div>
             </div>
 
             <div class="row">
               <div class="col-12">
                 <div class="swiper-container">
+                  <div class="overlay"></div>
                     <div class="swiper">
                     <div class="swiper-wrapper">
+                      
                       <div class="swiper-slide">
                         <img src="img/movie_kansi.png" alt="Elokuva sovelluksen kansikuva">
                         <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">Suosikki elokuvat</span>
@@ -161,28 +210,37 @@
 
         <!--Yhteystiedot-->
         <section id="yhteystiedot">
-            <div class="container px-4">
-                <div class="row">
-                    <div class="col-12 col-md-8 ">
-                        <div class="row">
-                            <div class="col-12 d-none d-md-block"> <h2>Yhteystiedot</h2>
-                            </div>
-                            <div class="col-12">
-                                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-6 yhteystiedot-teksti">
+                  <p>YHTEYSTIEDOT</p>
+                  <h2>Ota yhteyttä</h2>
+                  <p>Olisi hienoa kuulla ajatuksiasi sivustani ja projekteistani, kaikki palaute on enemmän kuin tervetullutta.</p>
+                  <p>Jos haluat keskustella, kysyä opinnoistani tai verkostoitua, tavoitat minut parhaiten sähköpostilla tai LinkedInissä.</p> 
+                  <p>Pyydettäessä lähetän mielelläni myös CV:ni.</p>
                 </div>
+                <div class="col-12 col-md-6 yhteystiedot-iconit">
+                  <a href="www.linkedin.com/in/riina-pietikäinen" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                  </a>
+                  <a href="mailto:sinun.sahkoposti@example.com">
+                      <i class="fas fa-envelope"></i>
+                  </a>
+                  <a href="www.github.com/kayttajanimi" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
             </div>
         </section>
 
-      
         <!-- Footer-->
-        <footer class="py-5">
-            <div class="container px-4">
-                <p class="m-0 text-center text-white">Copyright &copy; Riina Pietikäinen 2025</p>
-            </div>
-        </footer>
+        <footer class="footer">
+  <img src="img/footer.png" alt="Footerin taustakuva" class="footer-bg img-fluid">
+  <div class="footer-content">
+    <p>&copy; Riina Pietikäinen 2025</p>
+  </div>
+</footer>
 
         <!--Projektin modaali-->
         <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mainNav) {
     new bootstrap.ScrollSpy(document.body, {
       target: '#mainNav',
-      rootMargin: '0px 0px -40%',
+      rootMargin: '0px 0px -20%',
     });
   }
 
@@ -18,36 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-
-  // --- OSAAMINEN (sisältökytkimet) ---
-  const contentSwitchers = document.querySelectorAll('.content-switcher');
-  const contentDisplays = document.querySelectorAll('.content-display');
-
-  function showContent(targetId) {
-    contentDisplays.forEach(display => display.classList.remove('active-display'));
-    contentSwitchers.forEach(switcher => switcher.classList.remove('active'));
-
-    const targetDisplay = document.getElementById(targetId);
-    if (targetDisplay) {
-      targetDisplay.classList.add('active-display');
-    }
-
-    const activeSwitcher = document.querySelector(`.content-switcher[data-target="${targetId}"]`);
-    if (activeSwitcher) {
-      activeSwitcher.classList.add('active');
-    }
-  }
-
-  if (contentSwitchers.length) {
-    const initial = document.querySelector('.content-switcher.active') || contentSwitchers[0];
-    showContent(initial.dataset.target);
-
-    contentSwitchers.forEach(switcher => {
-      switcher.addEventListener('click', function () {
-        showContent(this.dataset.target);
-      });
-    });
-  }
 
   // --- PÄÄSIVUN SWIPER ALUSTUS ---
   var swiper = new Swiper(".swiper", {
@@ -77,11 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     breakpoints: {
       576: {
-        slidesPerView: 2.5,
+        slidesPerView: 3,
         allowTouchMove: true
       },
       768: {
-        slidesPerView: 2.5,
+        slidesPerView: 3,
         allowTouchMove: true
       },
       1024: {
@@ -119,61 +89,60 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   modal.addEventListener('shown.bs.modal', () => {
-  const swiperEl = modal.querySelector('.modal-swiper');
-  if (!swiperEl) return;
+    const swiperEl = modal.querySelector('.modal-swiper');
+    if (!swiperEl) return;
 
-  const isSingleSlide = swiperEl.classList.contains('single-slide');
+    const isSingleSlide = swiperEl.classList.contains('single-slide');
 
-  const swiper = new Swiper(swiperEl, {
-    effect: isSingleSlide ? "fade" : "coverflow",
-    grabCursor: false,
-    centeredSlides: true,
-    allowTouchMove: true,
-    slidesPerView: isSingleSlide ? 1 : 'auto',
-    loop: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 100,
-      modifier: 4,
-      slideShadows: false
-    },
-    pagination: {
-      el: ".modal-swiper-pagination",
-      clickable: true
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    },
-    breakpoints: {
-      576: { allowTouchMove: true },
-      768: { allowTouchMove: true },
-      1024: { allowTouchMove: false }
-    }
-  });
-
-  // --- Jos modaalissa on video, lisätään automaattinen toisto
-  const video = swiperEl.querySelector('video'); // haetaan video vain tämän Swiperin sisältä
-  if (video) {
-    function handleVideo() {
-      const activeSlide = swiper.slides[swiper.activeIndex];
-      if (activeSlide.contains(video)) {
-        video.muted = true;
-        video.play();
-      } else {
-        video.pause();
-        video.currentTime = 0;
+    const swiper = new Swiper(swiperEl, {
+      effect: isSingleSlide ? "fade" : "coverflow",
+      grabCursor: false,
+      centeredSlides: true,
+      allowTouchMove: true,
+      slidesPerView: isSingleSlide ? 1 : 'auto',
+      loop: true,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 4,
+        slideShadows: false
+      },
+      pagination: {
+        el: ".modal-swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      breakpoints: {
+        576: { allowTouchMove: true },
+        768: { allowTouchMove: true },
+        1024: { allowTouchMove: false }
       }
+    });
+
+    // --- Jos modaalissa on video, lisätään automaattinen toisto
+    const video = swiperEl.querySelector('video'); // haetaan video vain tämän Swiperin sisältä
+    if (video) {
+      function handleVideo() {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        if (activeSlide.contains(video)) {
+          video.muted = true;
+          video.play();
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+
+      swiper.on('slideChange', handleVideo);
+      handleVideo(); // tarkistetaan aktiivinen slide heti
     }
 
-    swiper.on('slideChange', handleVideo);
-    handleVideo(); // tarkistetaan aktiivinen slide heti
-  }
-
-  swiperEl.classList.add('swiper-ready');
-});
-
+    swiperEl.classList.add('swiper-ready');
+  });
 
   // --- NAVIGAATION TAUSTAVÄRI SCROLLATESSA ---
   function toggleNavbarBackground() {
@@ -186,4 +155,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', toggleNavbarBackground);
   toggleNavbarBackground();
+
+  // --- Päivitetään HTML-title klikkauksen mukaan ---
+document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    // Käytetään data-titlea, jos se on määritelty, muuten linkin tekstiä
+    document.title = link.dataset.title || link.textContent;
+  });
+});
 });
