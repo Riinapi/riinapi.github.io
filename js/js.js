@@ -1,13 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // --- Bootstrap ScrollSpy ---
-  const mainNav = document.body.querySelector('#mainNav');
-  if (mainNav) {
-    new bootstrap.ScrollSpy(document.body, {
-      target: '#mainNav',
-      rootMargin: '0px 0px -20%',
-    });
-  }
-
+ 
   // --- Sulje navbar responsiivisena klikatessa ---
   const navbarToggler = document.querySelector('.navbar-toggler');
   const responsiveNavItems = document.querySelectorAll('#navbarResponsive .nav-link');
@@ -22,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // --- PÄÄSIVUN SWIPER ALUSTUS ---
   var swiper = new Swiper(".swiper", {
     effect: "coverflow",
-    grabCursor: false,
+    grabCursor: true,
     allowTouchMove: true,
     centeredSlides: true,
     slidesPerView: 2,
@@ -34,6 +26,24 @@ document.addEventListener('DOMContentLoaded', function () {
       slideShadows: false,
     },
     loop: true,
+    on: {
+      slideChange: function () {
+        const slides = this.slides;
+        slides.forEach(slide => {
+          slide.classList.remove('level-1', 'level-2', 'level-3');
+        });
+
+        const activeIndex = this.activeIndex;
+
+        for (let i = 1; i <= 3; i++) {
+          const prev = slides[(activeIndex - i + slides.length) % slides.length];
+          const next = slides[(activeIndex + i) % slides.length];
+
+          prev.classList.add(`level-${i}`);
+          next.classList.add(`level-${i}`);
+        }
+      },
+    },
     keyboard: {
       enabled: false
     },
@@ -48,15 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       576: {
         slidesPerView: 3,
-        allowTouchMove: true
       },
       768: {
         slidesPerView: 3,
-        allowTouchMove: true
       },
       1024: {
         slidesPerView: 3,
-        allowTouchMove: false
       }
     }
   });
@@ -116,11 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
       },
-      breakpoints: {
-        576: { allowTouchMove: true },
-        768: { allowTouchMove: true },
-        1024: { allowTouchMove: false }
-      }
     });
 
     // --- Jos modaalissa on video, lisätään automaattinen toisto
@@ -157,10 +159,50 @@ document.addEventListener('DOMContentLoaded', function () {
   toggleNavbarBackground();
 
   // --- Päivitetään HTML-title klikkauksen mukaan ---
-document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
-  link.addEventListener('click', () => {
-    // Käytetään data-titlea, jos se on määritelty, muuten linkin tekstiä
-    document.title = link.dataset.title || link.textContent;
+  document.querySelectorAll('#navbarResponsive .nav-link, .navbar-brand').forEach(link => {
+    link.addEventListener('click', () => {
+      // Käytetään data-titlea, jos se on määritelty, muuten linkin tekstiä
+      document.title = link.dataset.title || link.textContent;
+    });
   });
+
+  // --- NAV-LINKIEN AKTIIVINEN TILA SCROLLATTAESSA ---
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('#navbarResponsive .nav-link');
+
+  function updateActiveNav() {
+  let current = "";
+  const scrollPosition = window.scrollY + window.innerHeight / 3;
+  const pageBottom = window.scrollY + window.innerHeight;
+  const pageHeight = document.documentElement.scrollHeight;
+
+  sections.forEach((section, index) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    // Jos ollaan sivun lopussa -> valitaan viimeinen section
+    if (pageBottom >= pageHeight - 5 && index === sections.length - 1) {
+      current = section.getAttribute("id");
+    } 
+    // Muuten normaali logiikka
+    else if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
+  });
+}
+
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav(); // tarkistetaan heti sivun latauduttua
+
 });
-});
+
+  
+

@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap 5 Example</title>
-  
+  <title>Riina Pietikäinen – Portfolio</title>
+
   <meta charset="utf-8">
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="description" content="Riina Pietikäisen portfolio: ohjelmointikielet, tekemät projektit ja yhteystiedot." />
+  <meta name="author" content="Riina Pietikäinen" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="img/PR.png" type="image/png">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://api.fontshare.com/css?f[]=general-sans@400,500,600,700&display=swap" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" >
   <link href="css/style.css" rel="stylesheet" />
 
 </head>
 
 <body>
-  <body id="page-top">
+  <body id="top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
           <div class="container">
-            <img class="logo" src="img/RP.png" href="#page-top">
-
+            <a class="navbar-brand" href="#top" data-title="Riina Pietikäinen – Portfolio">
+              <img class="logo" src="img/RP.png">
+            </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="icon-bar top-bar"></span>
               <span class="icon-bar middle-bar"></span>
@@ -31,16 +34,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="#tiedot" data-title="Esittely | OmaSivu">Esittely</a>
+                  <a class="nav-link" href="#tiedot" data-title="Tutustu | Riina Pietikäinen">Tutustu</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#taidot" data-title="Taidot | OmaSivu">Taidot</a>
+                  <a class="nav-link" href="#taidot" data-title="Taidot | Riina Pietikäinen">Taidot</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#projektit" data-title="Portfolio | OmaSivu">Portfolio</a>
+                  <a class="nav-link" href="#projektit" data-title="Portfolio | Riina Pietikäinen">Portfolio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#yhteystiedot" data-title="Yhteystiedot | OmaSivu">Yhteystiedot</a>
+                  <a class="nav-link" href="#yhteystiedot" data-title="Yhteystiedot | Riina Pietikäinen">Yhteystiedot</a>
                 </li>
               </ul>
             </div>
@@ -49,10 +52,10 @@
 
 
         <!-- Header-->
-        <header class="text-white">
+        <header id="top">
             <div class="container">
-                <h1>Welcome to Scrolling Nav</h1>
-                <p class="lead">A functional Bootstrap 5 boilerplate for one page scrolling websites</p>
+                <h1>Tervetuloa sivulleni!</h1>
+                <p class="lead">Olen Riina, tuleva IT-tradenomi</p>
             </div>
         </header>
         
@@ -61,29 +64,23 @@
         <section id="tiedot">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                          <img class="myimg" src="img/photo.png" alt="Riina Pietikäinen, portfolioesittelykuva">
+                    <div class="col-md-12 col-lg-4 tiedot-kuva">
+                      <img class="myimg" src="img/photo.png" alt="Riina Pietikäinen, portfolioesittelykuva">
                     </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="row">
-                            <div class="col-12">
-                              <p>ESITTELY</p> 
-                              <h2>Minun tarinani</h2>
-                            </div>
-                            <div class="col-12">
-                                <p>Olen Riina Pietikäinen, kolmannen vuoden tietojenkäsittelyn tradenomiopiskelija Lapin ammattikorkeakoulussa.
-                                   Suuntaudun ohjelmointiin ja olen kehittänyt osaamistani useissa kielissä, kuten [esim. Python, JavaScript]. 
-                                   Tavoitteenani on kasvaa monipuoliseksi osaajaksi, joka ymmärtää kokonaisuuksia.<br><br>
-                                   Alanvaihtajana tuon mukanani pitkän kokemuksen asiakaspalvelusta, joka on opettanut kuuntelemisen, yhteistyön ja
-                                   joustavuuden merkityksen. Luonnostani kiinnitän helposti huomiota pieniin yksityiskohtiin, uteliaisuuteni saa 
-                                   minut kokeilemaan uusia ratkaisuja, ja luovuus auttaa löytämään uusia näkökulmia.<br><br>
-                                   Minua IT-alalla kiehtoo mahdollisuus luoda ratkaisuja, jotka auttavat ja innostavat sekä käyttäjiä että organisaatioita.</p>
-                                  <p>Erityisesti kiinnostavat testaus, tekoäly, sovelluskehitys ja front end -kehitys.</p>
-                            </div>
-                            <div class="col-12">
-                              <img class="signature" src="img/name.png">
-                            </div>
-                        </div>
+                    <div class="col-md-12 col-lg-8">
+                      <p class="otsikko-eka">TUTUSTU</p> 
+                      <h2 class="otsikko-toka">Kuka olen?</h2>
+                            
+                       <p>Olen Riina Pietikäinen, kolmannen vuoden tietojenkäsittelyn tradenomiopiskelija Lapin ammattikorkeakoulussa.
+                          Suuntaudun ohjelmointiin ja olen kehittänyt osaamistani useissa kielissä, kuten JavaScript ja C#. 
+                          Tavoitteenani on kasvaa monipuoliseksi osaajaksi, joka ymmärtää kokonaisuuksia.</p>
+                        <p>Alanvaihtajana tuon mukanani pitkän kokemuksen asiakaspalvelusta, joka on opettanut kuuntelemisen, yhteistyön ja
+                           joustavuuden merkityksen. Luonnostani kiinnitän helposti huomiota pieniin yksityiskohtiin, uteliaisuuteni saa 
+                           minut kokeilemaan uusia ratkaisuja, ja luovuus auttaa löytämään uusia näkökulmia.</p>
+                        <p>IT-alalla kiehtoo mahdollisuus luoda ratkaisuja, jotka auttavat ja innostavat sekä käyttäjiä että organisaatioita.</p>
+                        <p>Erityisesti kiinnostavat testaus, tekoäly, sovelluskehitys ja front end -kehitys.</p>
+                            
+                        <img class="signature" src="img/name.png">
                     </div>
                 </div>
             </div>
@@ -94,56 +91,57 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                      <p>TAIDOT</p>
-                      <h2>Osaaminen</h2>
+                      <p class="otsikko-eka">TAIDOT</p>
+                      <h2 class="otsikko-toka">Osaaminen</h2>
+                      <p class="highlight-text">Ohjelmointikielet ja työkalut, joiden parissa olen työskennellyt ja joita olen opiskellut.</p>
                     </div>
                     <div class="col-12">
                       <div class="row g-4">
-                        <div class="col-12 col-md-3">
-                            <div class="skill-card">
-                              <i class="fas fa-laptop-code skill-icon"></i>
-                              <p class="skill-title">Frontend</p>
-                              <p class="skill-text">HTML /&nbsp;CSS /&nbsp;JavaScript /&nbsp;Angular /&nbsp;Bootstrap</p>
+                        <div class="col-12 col-md-4">
+                            <div class="taidot-card">
+                              <i class="fas fa-laptop-code taidot-icon"></i>
+                              <p class="taidot-title">Frontend</p>
+                              <p class="taidot-text">HTML /&nbsp;CSS /&nbsp;JavaScript /&nbsp;Angular /&nbsp;Bootstrap</p>
                             </div>
                         </div>
 
-                        <div class="col-6 col-md-3">
-                          <div class="skill-card">
-                            <i class="fas fa-database skill-icon"></i>
-                            <p class="skill-title">Backend</p>
-                            <p class="skill-text">PHP /&nbsp;Python /&nbsp;Java /&nbsp;C# /&nbsp;SQL</p>
-                          </div>
-                        </div>
-
-                        <div class="col-6 col-md-3">
-                          <div class="skill-card">
-                            <i class="fas fa-mobile-alt skill-icon"></i>
-                            <p class="skill-title">Mobiili</p>
-                            <p class="skill-text">Flutter /&nbsp;Kotlin</p>
-                          </div>
-                        </div>
-
-                        <div class="col-6 col-md-3">
-                          <div class="skill-card">
-                            <i class="fas fa-globe skill-icon"></i>
-                            <p class="skill-title">Verkkosivualustat</p>
-                            <p class="skill-text">WordPress</p>
+                        <div class="col-6 col-md-4">
+                          <div class="taidot-card">
+                            <i class="fas fa-database taidot-icon"></i>
+                            <p class="taidot-title">Backend</p>
+                            <p class="taidot-text">PHP /&nbsp;Python /&nbsp;Java /&nbsp;C# /&nbsp;SQL</p>
                           </div>
                         </div>
 
                         <div class="col-6 col-md-4">
-                          <div class="skill-card">
-                            <i class="fas fa-vr-cardboard skill-icon"></i>
-                            <p class="skill-title">Pelit & XR</p>
-                            <p class="skill-text">Unity /&nbsp;AR/VR</p>
+                          <div class="taidot-card">
+                            <i class="fas fa-mobile-alt taidot-icon"></i>
+                            <p class="taidot-title">Mobiili</p>
+                            <p class="taidot-text">Flutter /&nbsp;Kotlin</p>
                           </div>
                         </div>
 
-                        <div class="col-12 col-md-8">
-                          <div class="skill-card">
-                            <i class="fas fa-tools skill-icon"></i>
-                            <p class="skill-title">Työkalut & ohjelmistot</p>
-                            <p class="skill-text">GitHub /&nbsp;VS Code /&nbsp;Eclipse /&nbsp;Visual Studio /&nbsp;Android Studio /&nbsp;XAMPP /&nbsp;Figma /&nbsp;Power BI /&nbsp;Adobe Photoshop /&nbsp;MS Office 365 /&nbsp;Trello</p>
+                        <div class="col-6 col-lg-3">
+                          <div class="taidot-card">
+                            <i class="fas fa-globe taidot-icon"></i>
+                            <p class="taidot-title">Verkkosivualustat</p>
+                            <p class="taidot-text">WordPress</p>
+                          </div>
+                        </div>
+
+                        <div class="col-6  col-lg-3">
+                          <div class="taidot-card">
+                            <i class="fas fa-vr-cardboard taidot-icon"></i>
+                            <p class="taidot-title">Pelit & XR</p>
+                            <p class="taidot-text">Unity /&nbsp;AR/VR</p>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6">
+                          <div class="taidot-card">
+                            <i class="fas fa-tools taidot-icon"></i>
+                            <p class="taidot-title">Työkalut & ohjelmistot</p>
+                            <p class="taidot-text">GitHub /&nbsp;VS Code /&nbsp;Eclipse /&nbsp;Visual Studio /&nbsp;Android Studio /&nbsp;XAMPP /&nbsp;Figma /&nbsp;Power BI /&nbsp;Adobe Photoshop /&nbsp;MS Office 365 /&nbsp;Trello</p>
                           </div>
                         </div>
                       </div>    
@@ -154,54 +152,68 @@
 
         <!-- Projektit-->
         <section id="projektit">
+          
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <p>PORTFOLIO</p>
-                <h2 class="text-white">Viimeisimmät projektit</h2>
+                <p class="otsikko-eka">PORTFOLIO</p>
+                <h2 class="otsikko-toka">Viimeisimmät projektit</h2>
+                <p class="highlight-text">
+                  Muutama kouluprojekti, joissa olen soveltanut oppimaani ja kehittänyt osaamistani.
+                </p>
               </div>
             </div>
 
             <div class="row">
               <div class="col-12">
                 <div class="swiper-container">
-                  <div class="overlay"></div>
                     <div class="swiper">
                     <div class="swiper-wrapper">
-                      
                       <div class="swiper-slide">
                         <img src="img/movie_kansi.png" alt="Elokuva sovelluksen kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">Suosikki elokuvat</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">
+                          Suosikki elokuvat 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/saa_kansi.png" alt="Sää sovelluksen kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2">Sää päiväkirja</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project2">
+                          Sää päiväkirja 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/memo_kansi.png" alt="Memo pelin kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3">Viidakko muistipeli</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project3">
+                          Viidakko muistipeli 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/game_kansi.png" alt="Gallery Allergy pelin kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project5">Gallery Allergy</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project5">
+                          Gallery Allergy 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/zigzag_kansi.png" alt="Zig Zag pelin kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project6">Zig Zag Game</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project6">
+                          Zig Zag Game 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/botti_kansi.png" alt="Botti 4">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project7">Chatbot</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project7">
+                          Chatbot 
+                        </span>
                       </div>
                       <div class="swiper-slide">
                         <img src="img/wp_kansi.png" alt="Chatbotin kansikuva">
-                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project8">WordPress kotisivu</span>
+                        <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project8">
+                          WordPress kotisivu 
+                        </span>
                       </div>
                     </div>
                   </div>
                   <div class="swiper-pagination"></div>
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
                 </div>
               </div>
             </div>
@@ -212,14 +224,14 @@
         <section id="yhteystiedot">
             <div class="container">
               <div class="row">
-                <div class="col-12 col-md-6 yhteystiedot-teksti">
-                  <p>YHTEYSTIEDOT</p>
-                  <h2>Ota yhteyttä</h2>
+                <div class="col-12 col-md-8">
+                  <p class="otsikko-eka"> YHTEYSTIEDOT</p>
+                  <h2 class="otsikko-toka">Ota yhteyttä</h2>
                   <p>Olisi hienoa kuulla ajatuksiasi sivustani ja projekteistani, kaikki palaute on enemmän kuin tervetullutta.</p>
                   <p>Jos haluat keskustella, kysyä opinnoistani tai verkostoitua, tavoitat minut parhaiten sähköpostilla tai LinkedInissä.</p> 
                   <p>Pyydettäessä lähetän mielelläni myös CV:ni.</p>
                 </div>
-                <div class="col-12 col-md-6 yhteystiedot-iconit">
+                <div class="col-12 col-md-4 yhteystiedot-iconit">
                   <a href="www.linkedin.com/in/riina-pietikäinen" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i>
                   </a>
@@ -235,23 +247,19 @@
         </section>
 
         <!-- Footer-->
-        <footer class="footer">
-  <img src="img/footer.png" alt="Footerin taustakuva" class="footer-bg img-fluid">
-  <div class="footer-content">
-    <p>&copy; Riina Pietikäinen 2025</p>
-  </div>
-</footer>
+        <footer>
+          <img src="img/footer.png" alt="Footerin taustakuva">
+          <p>&copy; Riina Pietikäinen 2025</p>
+        </footer>
 
         <!--Projektin modaali-->
         <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg"> 
             <div class="modal-content bg-dark">
               <div class="modal-header">
-                <!-- Sulje-nappi tässä -->
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" id="projectModalBody">
-                <!-- Sisältö tulee tänne -->
               </div>
             </div>
           </div>
