@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="swiper-container">
         <div class="swiper modal-swiper single-slide horizontal-swiper">
           <div class="swiper-wrapper">
@@ -13,17 +13,19 @@
             </div>
           </div>
         </div>
+        <div class="swiper-button-prev modal-swiper-button-prev"></div>
+        <div class="swiper-button-next modal-swiper-button-next"></div>
         <div class="swiper-pagination modal-swiper-pagination"></div>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-md-12">
       <div class="modal-title-icon">
         <h4>Suomen lapinkoira Chatbot</h4>
         <a href="https://github.com/Riinapi/suomenlapinkoira-botti" target="_blank" rel="noopener noreferrer">
           <i class="fab fa-github"></i>
         </a>
       </div>
-      <p>Chatbot osaa vastata yksinkertaisiin kysymyksiin PDF-dokumentista, jossa on tietoa Suomenlapin koirasta.</p>
+      <p>Chatbot osaa vastata yksinkertaisiin kysymyksiin PDF-dokumentista, johon kokosin tietoa suomenlapinkoirasta.</p>
       <p>Sovellus on toteutettu Flaskilla, ja tekoälymallina käytetään ilmaista Hugging Facen Transformers -kirjaston suomenkielistä BERT-mallia 
          (TurkuNLP/bert-base-finnish-cased-squad2). Käyttäjä voi syöttää kysymyksiä lomakkeella, ja botti hakee vastaukset PDF:n tekstin perusteella.
       </p>  

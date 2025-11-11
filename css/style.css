@@ -1,3 +1,20 @@
+:root {
+  --color-iso-otsikko: #F5F5F5;
+  --color-pieni-otsikko:#8bc1b8;
+  --color-p-teksti: #D0D0D0;
+  --color-modal-teksti: #8bc1b8;
+  --otsikko-varjo: -4px 3px 8px rgb(0, 0, 0, 0.7);
+  --color-elementti-varjo: rgba(0, 0, 0, 0.4);
+  --color-icon: #4f9286;
+  --color-icon-hover: #7ab8ac; 
+  --color-icon-gray: #D0D0D0;
+  --color-icon-nuolet: #474B50; 
+  --color-hover-nuolet: #D0D0D0;
+  --color-tausta-primary: #1B1D20;
+  --color-tausta-secondary: #3e5674;
+  --color-tausta-tertiary: #202328;
+}
+
 html {
   scroll-padding-top: 30px;
   scroll-behavior: smooth;
@@ -8,8 +25,8 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.8;
-  color:  #e7e7e7;
-  background-color: #1B1D20;
+  color:  var(--color-p-teksti);
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
 }
@@ -17,12 +34,12 @@ body {
 h1, h2, h4 {
   font-family: "General Sans", sans-serif;
   font-weight: 600;
-  color:  #e7e7e7;
+  color:  var(--color-iso-otsikko);
   letter-spacing: 0.3px;
 }
 
 h1 {
-  font-size: calc(1.5rem + 1vw);
+  font-size: calc(1.75rem + 1vw);
   font-weight: 700;
 }
 
@@ -39,49 +56,41 @@ h4 {
 }
 
 p {
-  color: #e7e7e7;
+  color: var(--color-p-teksti);
 }
 
-.otsikko-eka {
+.pieni-otsikko {
   margin-bottom: 0px;
-  color:#6e81b1;
-  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.586));
+  color:var(--color-pieni-otsikko);
 }
 
-.otsikko-toka{
+
+.iso-otsikko{
   margin-bottom: 25px;
-  color: #6e81b1 ;
-  background-image: linear-gradient(135deg, #4d5b7c , #64728d 33%, #70B48F 67%, #73C99D 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.586));
-  
+  color:var(--color-iso-otsikko);
+  text-shadow: var(--otsikko-varjo);
 }
 
 .highlight-text {
   margin-bottom: 60px;
-  color: #e7e7e7;
+  color: var(--color-p-teksti);
 }
 
 section {
-  min-height: auto;
-  padding: 65px 120px;
+  padding: 80px 120px;
 }
-
 
 i {
   font-size: 30px;
-  color: #73C99D;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.637);
+  color: var( --color-icon);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.804);
 }
-
 
 #yhteystiedot i:hover,
 .modal-body i:hover {
-  color:#95E0C0;
+  color:var(--color-icon-hover);
   cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.804);
   transition: transform 0.3s, color 0.3s;
 }
 
@@ -90,30 +99,33 @@ i {
 /* NAVBAR */
 
 #mainNav {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.5s ease;
   background-color: transparent;
 }
 
 #mainNav.scrolled {
-  background-color: #1b1d20; 
+  background-color: var(--color-tausta-primary); 
 }
 
 #mainNav .nav-link {
-  color: rgba(255, 255, 255, 0.55);
+  color: #c3c3c3;
 }
 
 #mainNav .nav-link:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: 	#98b3af;
 }
 
 #mainNav .nav-link.active {
-  color: #fff;
+  color: #8bc1b8;
 }
 
 #mainNav .navbar-brand {
   font-weight: 700;
-  color: #fff;
 }
+
+.nav-item {
+    text-align: center;
+  }
 
 /* Hamppari */
 .navbar-toggler {
@@ -136,7 +148,7 @@ i {
 .navbar-toggler .icon-bar {
   height: 2px;
   width: 26px;
-  background-color: rgba(255, 255, 255, 0.55);
+  background-color: var(--color-icon-gray);
   border-radius: 1px;
   display: block;
   margin-top: 5px;
@@ -177,22 +189,60 @@ i {
 }
 
 /* HEADER */
-
 header {
   display: flex;
   height: 100vh;
   text-align: center;
   align-items: center;
   justify-content: center;
-  background: #2F435B;
-  background: radial-gradient(circle, #2F435B 0%, #1B1D20 90%);
+  color: var(--color-iso-otsikko); 
+  overflow: hidden; 
+  position: relative;
+}
+
+/* Nuoli*/
+#scroll-arrow i {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-icon-nuolet);
+  text-shadow: none;
+  animation: moveDown 3s linear infinite;
+  cursor: pointer;
+}
+
+/* Nuolen liike*/
+@keyframes moveDown {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, 5px);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translate(-50%, 10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
 }
 
 
 /*TIEDOT*/
 
 #tiedot {
-  background-color:#1b1d20;
+background-color: var(--color-tausta-primary); 
+background-repeat: no-repeat; 
+background-size: 50% 100%, 50% 100%;
+background-position: top left,  bottom right;
+background-image:
+  radial-gradient(at -60% 35%, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 45%),
+  radial-gradient(at 160% 65%, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 45%);
 }
 
 .tiedot-kuva {
@@ -201,24 +251,41 @@ header {
 }
 
 .myimg {
-    width: 90%; 
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 50%;   
-    box-shadow: 
-    #00000069 -8px 5px 50px;
+  width: 90%; 
+  height: auto;
+  margin-bottom: 20px; 
+  border-radius: 50%;
+  box-shadow: -20px 4px 20px var(--color-elementti-varjo);
 }
 
 .signature {
-  height:25px;
+  display: block; 
+  height:24px;
   width: auto;
+  margin-top: 40px;
 }
+
+.location {
+  display: inline-flex;      
+  align-items: center;       
+  gap: 6px;                  
+  color:var(--color-pieni-otsikko);               
+  font-size: 16px;               
+}
+
+.location i {
+  color: var(--color-pieni-otsikko);            
+  font-size: 14px;
+  text-shadow: none;
+}
+
+
 
 
 /* OSAAMINEN */
 
 #taidot {
- background: #1B1D20;
+ background: var(--color-tausta-primary);
  text-align: center;
 }
 
@@ -226,33 +293,37 @@ header {
   margin-bottom: 10px;
 }
 
+/* Kortit */
 .taidot-card {
+  position: relative;
   padding:24px;
-  background: #1f2326;
-  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  background: var(--color-tausta-primary);
+  background: linear-gradient(to bottom, #26303c 0%, var(--color-tausta-primary) 100%);
   border-radius: 8px;
+  /*box-shadow: var(--color-elementti-varjo) 0px 20px 15px -15px;*/
   height: 100%;             
   text-align: center;       
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  z-index: 10;
 }
+
 
 #taidot i {
   margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.637);
 }
 
 .taidot-title {
   font-weight:500;
   margin-bottom: 6px;
-  color:#e7e7e7;
+  color:var(--color-iso-otsikko);
 }
 
 .taidot-text {
 
-  color:#e7e7e7;
+  color:var(--color-p-teksti);
   margin-bottom: 0;
 }
 
@@ -264,16 +335,15 @@ header {
   width: 100%;
   text-align: center;
   overflow: hidden;
-  padding: 50px 0;
-  background: #2F435B;
-  background: radial-gradient(circle, #2F435B 0%, #1B1D20 45%);
+  padding: 80px 0;
+  background: var(--color-tausta-primary);
+  background: radial-gradient(circle, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 45%);
 }
 
 #projektit .container-fluid {
   width: 85%;
   margin: 0 auto;
 }
-
 
 #projektit .otsikko-eka,
 #projektit .otsikko-toka,
@@ -286,6 +356,7 @@ header {
   margin-bottom: 10px;
 }
 
+/* Swiper karuselli*/
 .swiper-container {
   position: relative;
   overflow: visible;
@@ -311,21 +382,26 @@ header {
   transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease;
 }
 
+/* Toiseksi reunimmaiset slidet */
 .swiper-slide.level-1 {
   filter: brightness(0.7);
-}
 
+}
+/* Kolmanneksi reunimmaiset slidet  */
 .swiper-slide.level-2 {
   filter: brightness(0.5);
 }
 
+/* Neljänneksi reunimmaiset slidet */
 .swiper-slide.level-3 {
   opacity: 0;
 }
 
+/* Keskimmäinen slide */
 .swiper-slide-active {
   filter: brightness(1);
   opacity: 1;
+  
 }
 
 .swiper-slide img {
@@ -333,24 +409,21 @@ header {
   object-fit: contain;
   display: block;
   border-radius: 8px;
+  box-shadow: var(--color-elementti-varjo) 0px 20px 15px -15px;
 }
 
-.swiper-slide-active {
-  filter: brightness(100%);
-  position: relative;
-}
-
+/* Sliden teksti */
 .swiper-slide span {
   position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-items:center;
   width: 300px;
-  bottom: -50px;
+  bottom: -58px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 6px 12px;
-  color: #e7e7e7;
+  padding: 50px 0 12px;
+  color: var(--color-p-teksti);
   opacity: 0;
   pointer-events: none;
   font-size: 20px;
@@ -367,20 +440,48 @@ header {
   to { opacity: 1; }
 }
 
-#projektit .swiper-slide-active:hover span {
-  color: #b1abb8;
+#projektit .swiper-slide-active span:hover {
+  color: var(--color-hover);
+  font-weight: 500;
 }
 
+/* Pallot */
 .swiper-pagination-bullet,
 .swiper-pagination-bullet-active {
-  background: #e7e7e7;
+  background: var(--color-icon-gray);
 }
+
+/* Nuolet */
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--color-icon-nuolet);           
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: var(--color-hover-nuolet);              
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px;
+  font-weight: bold;         
+}
+
+.swiper-button-prev {
+  left: -40px;
+}
+.swiper-button-next {
+  right: -40px;
+}
+
+
 
 /* YHTEYSTIEDOT */
 
 #yhteystiedot {
   padding-bottom: 30px;
-  background: linear-gradient(180deg, #1b1d20, #252a30);
+  background: linear-gradient(180deg, var(--color-tausta-primary), #252a30);
 }
 
 .yhteystiedot-teksti {
@@ -393,7 +494,7 @@ header {
   justify-content: flex-end;  
   align-items: center;        
   gap: 50px;                  
-  padding: 10px;              
+  padding: 10px;            
 }
 
 
@@ -430,8 +531,14 @@ footer p {
 }
 
 .modal-content {
-  background-color: #1f2326;
-  color: #e7e7e7;
+  background-color: var(--color-tausta-tertiary);
+  color: var(--color-p-teksti);
+}
+
+.btn-close {
+  background: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23e7e7e7' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  opacity: 1; 
 }
 
 .modal-header {
@@ -445,40 +552,37 @@ footer p {
   justify-content: center;
 }
 
+/* Otsikko */
 .modal-title{
   margin-bottom:20px;
-  margin-top:30px;
-  color: #6e81b1 ;
-  background-image: linear-gradient(135deg, #4d5b7c , #64728d 33%, #70B48F 67%, #73C99D 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-iso-otsikko);
   display: inline-block;
-  filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.586));
+  text-shadow: var(--otsikko-varjo);
 }
 
+/* Otsikot joissa iconi */
 .modal-title-icon {
   display: flex;
   justify-content: space-between; 
   align-items: center;
   margin-bottom:20px;
-  margin-top:30px;
+
+  
 }
 
+/* Otsikot joissa iconi */
 .modal-title-icon h4 {
   margin: 0;
-  color: #5A6678 ;
-  background-image: linear-gradient(135deg, #5A6678 , #6C7B97 33%, #70B48F 67%, #73C99D 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: inline-block;
+  color: var(--color-iso-otsikko);
+  text-shadow: var(--otsikko-varjo);
 }
 
 .modal-teknologiat {
-  color: #70B48F;
+  color: var(--color-modal-teksti);
 }
 
+/* X nappi */
 .btn-close:focus,
 .btn-close:active {
   outline: none;
@@ -486,11 +590,12 @@ footer p {
   box-shadow: none;
 }
 
+/* Modaalin swiper karuselli */
 .modal-swiper {
  width: 100%;
  padding: 0 0 40px 0;
  opacity: 0;
- transition: opacity 0.4s ease;
+ transition: opacity 0.4s ease; /* Näkyyvyyten pieni viive, että kaikki kerkeää latautua*/
 }
 
 .modal-swiper.swiper-ready {
@@ -499,60 +604,61 @@ footer p {
 
 .modal-swiper .swiper-slide {
   height: 300px;
-  box-shadow: none;
   background:none;
   display: flex;           
   justify-content: center;
   align-items: center;
   filter: brightness(0.5);
   transition: transform 0.6s ease, filter 0.6s ease;
+  margin-bottom: 10px;
 }
 
+/* Keskimmäinen slide kirkas*/
 .modal-swiper .swiper-slide-active {
   filter: brightness(1);
 }
 
 .modal-swiper .swiper-slide img {
-  max-height:100%;
+  height:100%;
+  max-width: 100%;
   object-fit: contain;
   border-radius: 8px;
+  box-shadow: var(--color-elementti-varjo) 0px 20px 15px -15px;
 }
 
 /* Isommat kuvat swiper*/
 .big-swiper .swiper-slide {
   height: 450px;
-  box-shadow: none;
-  background: #1f2326;
-  display: flex;           
-  justify-content: center;
-  align-items: center;
 }
 
-.big-swiper .swiper-slide img {
-  max-height:100%;
-  width: 100%;
-  object-fit: contain;
+/* Otsikon ja swiperin väli*/
+.horizontal-swiper {
+  margin-bottom: 30px;
 }
 
 /* Vertikaali swiper */
 .vertical-swiper .swiper-slide {
   width: 240px;
   height: 380px;
-  display: flex;           
-  justify-content: center;
-  align-items: center; 
 }
 
-.vertical-swiper .swiper-slide img {
-  object-fit: contain;
-  max-height: 100%;
-  border-radius: 8px;
+/* Piilotetaan yksittäin näkyvistä slideista takimmaiset koko eron vuoksi*/
+.single-slide .swiper-slide {
+ opacity:0 !important;
 }
 
-/* YKsittäinen slide swiper */
-.single-slide .swiper-slide{
-  filter: brightness(1);
+.single-slide .swiper-slide-active {
+  opacity:1 !important;
 }
+
+/* Nuolet */
+.modal-swiper-button-prev{
+  left:-5px;
+}
+.modal-swiper-button-next{
+  right:-5px;
+}
+
 
 /*video*/
 .memo-video-container {
@@ -604,6 +710,12 @@ footer p {
 
 /* Esittely */
 
+@media (max-width: 480px) {
+  #tiedot {
+    background-size: 100% 50%, 100% 50%;
+  }
+}
+
 @media (max-width: 1024px) {
   .tiedot-kuva {
     justify-content: center;
@@ -626,19 +738,19 @@ footer p {
 
 @media (max-width: 1024px) {
   #projektit {
-    background: radial-gradient(circle, #2F435B 0%, #1B1D20 55%);
+    background: radial-gradient(circle, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 55%);
   }
 }
 
 @media (max-width: 768px) {
   #projektit {
-    background: radial-gradient(circle, #2F435B 0%, #1B1D20 60%);
+    background: radial-gradient(circle, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 60%);
   }
 }
 
 @media (max-width: 480px) {
   #projektit {
-    background: radial-gradient(circle, #2F435B 0%, #1B1D20 80%);
+    background: radial-gradient(circle, var(--color-tausta-secondary) 0%, var(--color-tausta-primary) 80%);
   }
 }
 
@@ -646,6 +758,14 @@ footer p {
   #projektit .container-fluid{
     width: 100%;
     padding:0;
+  }
+}
+
+/* Swiperin nuolet piilotetaan pienemmillä näytöillä */
+@media (max-width: 992px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+      visibility: hidden;
   }
 }
 
@@ -659,7 +779,7 @@ footer p {
 
 @media (max-width: 768px) {
   .yhteystiedot-iconit {
-    margin-top: 30px;
+    margin-top: 40px;
     justify-content: center;
   }
 }
@@ -693,32 +813,50 @@ footer p {
   }
 }
 
-@media (max-width: 768px) {
-    .big-swiper .swiper-slide {
-      height: 250px;
-    }
+/* Swiperin ja otsikon väli*/
+@media (max-width: 480px) {
+  .col-md-6 .modal-swiper {
+    margin-bottom: 30px;
   }
+}
+
+@media (max-width: 991.98px) {
+  .col-md-12 .modal-swiper {
+    margin-bottom: 30px;
+  }
+}
+
+/* Vaaka suuntaset kuvat swiperit */
+@media (max-width:1024px) {
+  .horizontal-swiper .swiper-slide {
+    height:auto;
+  }
+}
+
+@media (max-width:1024px) {
+  .horizontal-swiper .swiper-slide img {
+    max-height:300px;
+  }
+}
+
+@media (max-width:468px) {
+  .horizontal-swiper .swiper-slide img {
+    max-height:200px;}
+}
 
 @media (max-width: 768px) {
-    .vertical-swiper .swiper-slide {
-      width: 220px;
-      height: 340px;
-    }
+  .vertical-swiper .swiper-slide {
+    width: 220px;
+    height: 340px;
   }
-
-
-@media (max-width: 768px) {
-    .horizontal-swiper .swiper-slide {
-      height: 180px;
-    }
-  }
+}
 
 @media (max-width: 768px) {
-    .video-container {
-      width: 220px;
-      height: 340px;
-    }
+  .video-container {
+    width: 220px;
+    height: 340px;
   }
+}
 
 
 

@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="https://api.fontshare.com/css?f[]=general-sans@400,500,600,700&display=swap" >
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap" >
-  <link href="css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/header-animation-style.css">
 
 </head>
 
@@ -53,34 +54,42 @@
 
         <!-- Header-->
         <header id="top">
-            <div class="container">
-                <h1>Tervetuloa sivulleni!</h1>
-                <p class="lead">Olen Riina, tuleva IT-tradenomi</p>
-            </div>
+          <div class="container">
+            <h1>Riina Pietikäinen</h1>
+            <p class="lead pieni-otsikko">IT-tradenomi / Digital Solutions & Development</p>
+            <a id="scroll-arrow" href="#tiedot">
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
         </header>
+
+        
         
 
         <!--Esittely-->
         <section id="tiedot">
-            <div class="container">
+            <div class="container tiedot-sisalto">
                 <div class="row">
                     <div class="col-md-12 col-lg-4 tiedot-kuva">
                       <img class="myimg" src="img/photo.png" alt="Riina Pietikäinen, portfolioesittelykuva">
                     </div>
                     <div class="col-md-12 col-lg-8">
-                      <p class="otsikko-eka">TUTUSTU</p> 
-                      <h2 class="otsikko-toka">Kuka olen?</h2>
+                      <p class="pieni-otsikko">TUTUSTU</p> 
+                      <h2 class="iso-otsikko">Kuka olen?</h2>
                             
                        <p>Olen Riina Pietikäinen, kolmannen vuoden tietojenkäsittelyn tradenomiopiskelija Lapin ammattikorkeakoulussa.
-                          Suuntaudun ohjelmointiin ja olen kehittänyt osaamistani useissa kielissä, kuten JavaScript ja C#. 
-                          Tavoitteenani on kasvaa monipuoliseksi osaajaksi, joka ymmärtää kokonaisuuksia.</p>
+                          Suuntaudun ohjelmointiin ja olen kehittänyt osaamistani useissa kielissä, kuten JavaScript ja C#.</p>
                         <p>Alanvaihtajana tuon mukanani pitkän kokemuksen asiakaspalvelusta, joka on opettanut kuuntelemisen, yhteistyön ja
                            joustavuuden merkityksen. Luonnostani kiinnitän helposti huomiota pieniin yksityiskohtiin, uteliaisuuteni saa 
                            minut kokeilemaan uusia ratkaisuja, ja luovuus auttaa löytämään uusia näkökulmia.</p>
                         <p>IT-alalla kiehtoo mahdollisuus luoda ratkaisuja, jotka auttavat ja innostavat sekä käyttäjiä että organisaatioita.</p>
-                        <p>Erityisesti kiinnostavat testaus, tekoäly, sovelluskehitys ja front end -kehitys.</p>
+                        <p>Tavoitteenani on kasvaa monipuoliseksi osaajaksi, joka ymmärtää ja hallitsee kokonaisuuksia.</p>
                             
                         <img class="signature" src="img/name.png">
+                        <div class="location">
+                          <i class="fa-solid fa-location-dot"></i>
+                          <span>Rovaniemi</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,21 +100,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                      <p class="otsikko-eka">TAIDOT</p>
-                      <h2 class="otsikko-toka">Osaaminen</h2>
+                      <p class="pieni-otsikko">TAIDOT</p>
+                      <h2 class="iso-otsikko">Osaaminen</h2>
                       <p class="highlight-text">Ohjelmointikielet ja työkalut, joiden parissa olen työskennellyt ja joita olen opiskellut.</p>
                     </div>
                     <div class="col-12">
                       <div class="row g-4">
-                        <div class="col-12 col-md-4">
-                            <div class="taidot-card">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="taidot-card eka-kortti">
                               <i class="fas fa-laptop-code taidot-icon"></i>
                               <p class="taidot-title">Frontend</p>
                               <p class="taidot-text">HTML /&nbsp;CSS /&nbsp;JavaScript /&nbsp;Angular /&nbsp;Bootstrap</p>
                             </div>
                         </div>
 
-                        <div class="col-6 col-md-4">
+                        <div class="col-12 col-md-6 col-lg-4">
                           <div class="taidot-card">
                             <i class="fas fa-database taidot-icon"></i>
                             <p class="taidot-title">Backend</p>
@@ -113,7 +122,7 @@
                           </div>
                         </div>
 
-                        <div class="col-6 col-md-4">
+                        <div class="col-12  col-md-4 col-lg-4">
                           <div class="taidot-card">
                             <i class="fas fa-mobile-alt taidot-icon"></i>
                             <p class="taidot-title">Mobiili</p>
@@ -121,7 +130,7 @@
                           </div>
                         </div>
 
-                        <div class="col-6 col-lg-3">
+                        <div class="col-6 col-md-4 col-lg-3">
                           <div class="taidot-card">
                             <i class="fas fa-globe taidot-icon"></i>
                             <p class="taidot-title">Verkkosivualustat</p>
@@ -129,19 +138,19 @@
                           </div>
                         </div>
 
-                        <div class="col-6  col-lg-3">
+                        <div class="col-6  col-md-4 col-lg-3">
                           <div class="taidot-card">
                             <i class="fas fa-vr-cardboard taidot-icon"></i>
                             <p class="taidot-title">Pelit & XR</p>
-                            <p class="taidot-text">Unity /&nbsp;AR/VR</p>
+                            <p class="taidot-text">Unity Engine /&nbsp;AR/VR</p>
                           </div>
                         </div>
 
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-md-12 col-lg-6">
                           <div class="taidot-card">
                             <i class="fas fa-tools taidot-icon"></i>
                             <p class="taidot-title">Työkalut & ohjelmistot</p>
-                            <p class="taidot-text">GitHub /&nbsp;VS Code /&nbsp;Eclipse /&nbsp;Visual Studio /&nbsp;Android Studio /&nbsp;XAMPP /&nbsp;Figma /&nbsp;Power BI /&nbsp;Adobe Photoshop /&nbsp;MS Office 365 /&nbsp;Trello</p>
+                            <p class="taidot-text">GitHub /&nbsp;VS Code /&nbsp;Eclipse /&nbsp;Visual Studio /&nbsp;Android Studio /&nbsp;XAMPP /&nbsp;Figma /&nbsp;Power BI /&nbsp;Adobe Photoshop /&nbsp;Trello /&nbsp;MS Office 365</p>
                           </div>
                         </div>
                       </div>    
@@ -156,8 +165,8 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <p class="otsikko-eka">PORTFOLIO</p>
-                <h2 class="otsikko-toka">Viimeisimmät projektit</h2>
+                <p class="pieni-otsikko">PORTFOLIO</p>
+                <h2 class="iso-otsikko">Viimeisimmät projektit</h2>
                 <p class="highlight-text">
                   Muutama kouluprojekti, joissa olen soveltanut oppimaani ja kehittänyt osaamistani.
                 </p>
@@ -170,7 +179,7 @@
                     <div class="swiper">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
-                        <img src="img/movie_kansi.png" alt="Elokuva sovelluksen kansikuva">
+                        <img src="img\movie_kansi.png" alt="Elokuva sovelluksen kansikuva">
                         <span data-bs-toggle="modal" data-bs-target="#projectModal" data-project="project1">
                           Suosikki elokuvat 
                         </span>
@@ -213,6 +222,8 @@
                       </div>
                     </div>
                   </div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
                   <div class="swiper-pagination"></div>
                 </div>
               </div>
@@ -225,20 +236,20 @@
             <div class="container">
               <div class="row">
                 <div class="col-12 col-md-8">
-                  <p class="otsikko-eka"> YHTEYSTIEDOT</p>
-                  <h2 class="otsikko-toka">Ota yhteyttä</h2>
+                  <p class="pieni-otsikko"> YHTEYSTIEDOT</p>
+                  <h2 class="iso-otsikko">Ota yhteyttä</h2>
                   <p>Olisi hienoa kuulla ajatuksiasi sivustani ja projekteistani, kaikki palaute on enemmän kuin tervetullutta.</p>
                   <p>Jos haluat keskustella, kysyä opinnoistani tai verkostoitua, tavoitat minut parhaiten sähköpostilla tai LinkedInissä.</p> 
                   <p>Pyydettäessä lähetän mielelläni myös CV:ni.</p>
                 </div>
                 <div class="col-12 col-md-4 yhteystiedot-iconit">
-                  <a href="www.linkedin.com/in/riina-pietikäinen" target="_blank" rel="noopener noreferrer">
+                  <a href="https://linkedin.com/in/riinapietikainen" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-linkedin"></i>
                   </a>
-                  <a href="mailto:sinun.sahkoposti@example.com">
+                  <a href="mailto:riina.pietikainen.rp@gmail.com">
                       <i class="fas fa-envelope"></i>
                   </a>
-                  <a href="www.github.com/kayttajanimi" target="_blank" rel="noopener noreferrer">
+                  <a href="https://github.com/Riinapi" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i>
                   </a>
                 </div>
@@ -255,9 +266,9 @@
         <!--Projektin modaali-->
         <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg"> 
-            <div class="modal-content bg-dark">
+            <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body" id="projectModalBody">
               </div>
