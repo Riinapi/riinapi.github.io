@@ -57,6 +57,8 @@ h4 {
 
 p {
   color: var(--color-p-teksti);
+  font-size: 1.05rem; /* vähän isompi kuin oletus */
+
 }
 
 .pieni-otsikko {
@@ -708,6 +710,14 @@ footer p {
   }
 }
 
+/* Header */
+
+@media (max-width: 480px) {
+#scroll-arrow i {
+  bottom: 60px;
+}
+}
+
 /* Esittely */
 
 @media (max-width: 480px) {
@@ -831,7 +841,13 @@ footer p {
     height: auto;
   }
   .horizontal-swiper .swiper-slide img {
-    max-height: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width:768px) {
+  .horizontal-swiper .swiper-slide img {
+    box-shadow:none;
   }
 }
 
@@ -852,6 +868,3 @@ footer p {
 
 
 
-/* #252a30 vaalea*/
-/* #1f2326 tumma  #1B1D20*/
-/*python -m http.server*/
