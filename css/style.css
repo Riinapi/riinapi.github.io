@@ -10,6 +10,7 @@
   --color-icon-gray: #D0D0D0;
   --color-icon-nuolet: #474B50; 
   --color-hover-nuolet: #D0D0D0;
+  --color-hover: #F5F5F5;
   --color-tausta-primary: #1B1D20;
   --color-tausta-secondary: #3e5674;
   --color-tausta-tertiary: #202328;
@@ -419,9 +420,11 @@ background-image:
   position: absolute;
   display: flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-end;
+  gap: 8px;
   width: 300px;
-  bottom: -58px;
+  height: 400px;
+  margin-top: 60px;
   left: 50%;
   transform: translateX(-50%);
   padding: 50px 0 12px;
@@ -429,6 +432,15 @@ background-image:
   opacity: 0;
   pointer-events: none;
   font-size: 20px;
+}
+
+/* Ikonin tyyli */
+.swiper-slide span i {
+  font-size: 0.9em; /* tekee ikonista vähän pienemmän kuin teksti */
+  color: var(--color-p-teksti);
+  padding-bottom: 8px;
+  opacity:0.8;
+  text-shadow: none;
 }
 
 .swiper-slide-active span {
@@ -442,10 +454,16 @@ background-image:
   to { opacity: 1; }
 }
 
-#projektit .swiper-slide-active span:hover {
+.swiper-slide-active span:hover {
   color: var(--color-hover);
   font-weight: 500;
 }
+
+.swiper-slide span:hover i {
+  color: var(--color-hover);
+}
+
+
 
 /* Pallot */
 .swiper-pagination-bullet,
