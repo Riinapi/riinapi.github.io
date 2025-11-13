@@ -57,7 +57,7 @@ h4 {
 
 p {
   color: var(--color-p-teksti);
-  font-size: 1.05rem; /* vähän isompi kuin oletus */
+  font-size: 1.05rem; 
 
 }
 
@@ -205,7 +205,7 @@ header {
 /* Nuoli*/
 #scroll-arrow i {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   color: var(--color-icon-nuolet);

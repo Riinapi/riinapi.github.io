@@ -123,75 +123,87 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // MODAALI
 
-const modal = document.getElementById('projectModal');
-const modalBody = document.getElementById('projectModalBody');
-let loadedProject = null;
+  // Haetaan modaalin ja sen sisällön HTML-elementit
+  const modal = document.getElementById('projectModal');
+  const modalBody = document.getElementById('projectModalBody');
+  let loadedProject = null;
 
-// Kun modaali avataan
-modal.addEventListener('show.bs.modal', async (event) => {
-  const button = event.relatedTarget;
-  const project = button?.getAttribute('data-project');
-  if (!project || loadedProject === project) return;
+  // Kun modaali avataan
+  modal.addEventListener('show.bs.modal', async (event) => {
+    // Haetaan se painike, joka avasi modaalin
+    const button = event.relatedTarget;
+    // Haetaan painikkeen data-attribuutista projektin nimi
+    const project = button?.getAttribute('data-project');
+    // Jos projektia ei ole määritelty tai se on jo ladattu, lopetetaan
+    if (!project || loadedProject === project) return;
 
-  loadedProject = project;
-  modalBody.innerHTML = '<p class="text-white">Ladataan sisältöä...</p>';
+    loadedProject = project; // Päivitetään muistiin ladattu projekti
+    modalBody.innerHTML = '<p class="text-white">Ladataan sisältöä...</p>';
 
-  try {
-    const response = await fetch(`projects/${project}.html`);
-    if (!response.ok) throw new Error('Projektia ei löytynyt');
-    modalBody.innerHTML = await response.text();
-  } catch {
-    modalBody.innerHTML = '<p class="text-danger">Sisältöä ei voitu ladata.</p>';
-  }
-});
-
-// Kun modaali on täysin näkyvissä
-modal.addEventListener('shown.bs.modal', () => {
-  const swiperEl = modal.querySelector('.modal-swiper');
-  if (!swiperEl) return;
-
-  const isSingleSlide = swiperEl.classList.contains('single-slide');
-
-  const swiper = new Swiper(swiperEl, {
-    effect: isSingleSlide ? 'fade' : 'coverflow',
-    centeredSlides: true,
-    slidesPerView: isSingleSlide ? 1 : 'auto',
-    loop: true,
-    coverflowEffect: { 
-      rotate: 0, 
-      stretch: 0, 
-      depth: 100, 
-      modifier: 4, 
-      slideShadows: false 
-    }, 
-    navigation: { 
-      nextEl: ".swiper-button-next", 
-      prevEl: ".swiper-button-prev", 
-    }, 
-    pagination: { 
-      el: ".modal-swiper-pagination", 
-      clickable: true 
-    },
+    try {
+      // Yritetään hakea projektin HTML-tiedosto palvelimelta
+      const response = await fetch(`projects/${project}.html`);
+      // Jos tiedostoa ei löydy
+      if (!response.ok) throw new Error('Projektia ei löytynyt');
+      // Jos lataus onnistuu, korvataan modaalin sisältö tiedoston sisällöllä
+      modalBody.innerHTML = await response.text();
+    } catch {
+      // Jos lataus epäonnistuu, näytetään virheilmoitus
+      modalBody.innerHTML = '<p class="text-danger">Sisältöä ei voitu ladata.</p>';
+    }
   });
 
-  const video = swiperEl.querySelector('video');
-  if (video) {
-    const handleVideo = () => {
-      const activeSlide = swiper.slides[swiper.activeIndex];
-      if (activeSlide.contains(video)) {
-        video.muted = true;
-        video.play();
-      } else {
-        video.pause();
-        video.currentTime = 0;
-      }
-    };
-    swiper.on('slideChange', handleVideo);
-    handleVideo();
-  }
+  // Kun modaali on täysin näkyvissä
+  modal.addEventListener('shown.bs.modal', () => {
+    // Etsitään modaalista Swiper-elementti (kuvakaruselli)
+    const swiperEl = modal.querySelector('.modal-swiper');
+    if (!swiperEl) return;
 
-  swiperEl.classList.add('swiper-ready');
-});
+    // Tarkistetaan onko swiperilla single-slide luokka (swiperissa näkyy yksi dia kerrallaan)
+    const isSingleSlide = swiperEl.classList.contains('single-slide');
+
+    const swiper = new Swiper(swiperEl, {
+      effect: isSingleSlide ? 'fade' : 'coverflow', // määritetään efekti luokan mukaan
+      centeredSlides: true,
+      slidesPerView: isSingleSlide ? 1 : 'auto', // määritetään näkymä luokan mukaan
+      loop: true,
+      coverflowEffect: { 
+        rotate: 0, 
+        stretch: 0, 
+        depth: 100, 
+        modifier: 4, 
+        slideShadows: false 
+      }, 
+      navigation: { 
+        nextEl: ".swiper-button-next", 
+        prevEl: ".swiper-button-prev", 
+      }, 
+      pagination: { 
+        el: ".modal-swiper-pagination", 
+        clickable: true 
+      },
+    });
+
+    const video = swiperEl.querySelector('video');
+    if (video) {
+      // Funktio, joka toistaa videon vain aktiivisessa diassa
+      const handleVideo = () => {
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        if (activeSlide.contains(video)) {
+          video.muted = true; // varmistetaan ettei ääni kuulu
+          video.play(); // aloitetaan toisto
+        } else {
+          video.pause(); // pysäytetään video, jos se ei ole näkyvissä
+          video.currentTime = 0; // palautetaan alkuun
+        }
+      };
+      // Kutsutaan funktiota aina kun dia vaihtuu
+      swiper.on('slideChange', handleVideo);
+      handleVideo();
+    }
+    // Merkitään, että swiper on valmis (css hallinta näkyvyyteen)
+    swiperEl.classList.add('swiper-ready');
+  });
 
 
   //  HEADERIN NUOLI 
